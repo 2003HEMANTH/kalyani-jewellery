@@ -23,9 +23,9 @@ export function Footer() {
             <p className="mt-6 max-w-md text-sm text-ivory/60">
               A house of bridal, gold, diamond and bespoke jewellery — handcrafted in our Bengaluru atelier and worn across generations.
             </p>
-            <form onSubmit={(e) => e.preventDefault()} className="mt-7 flex max-w-md items-center gap-2 rounded-full border border-ivory/15 bg-ivory/5 p-1.5 pl-5">
-              <input placeholder="Your email for private previews" className="flex-1 bg-transparent text-sm outline-none placeholder:text-ivory/40 text-ivory" />
-              <button className="rounded-full bg-gradient-rose px-5 py-2.5 text-xs font-medium tracking-wide text-primary-foreground">Subscribe</button>
+            <form onSubmit={(e) => e.preventDefault()} className="mt-7 flex flex-col sm:flex-row max-w-md items-stretch sm:items-center gap-2 rounded-[2rem] sm:rounded-full border border-ivory/15 bg-ivory/5 p-2 sm:p-1.5 pl-4 sm:pl-5">
+              <input placeholder="Your email for private previews" className="flex-1 bg-transparent text-sm outline-none placeholder:text-ivory/40 text-ivory py-2 sm:py-0" />
+              <button className="rounded-full bg-gradient-rose px-5 py-3 sm:py-2.5 text-xs font-medium tracking-wide text-primary-foreground w-full sm:w-auto cursor-pointer">Subscribe</button>
             </form>
           </div>
           <div>
@@ -51,7 +51,7 @@ export function Footer() {
         <div className="my-12 divider-rose" />
 
         <div className="flex flex-col items-center justify-between gap-4 text-xs text-ivory/50 md:flex-row">
-          <div>© {new Date().getFullYear()} Kalyani Jewellery. BIS Hallmarked · IGI Certified.</div>
+          <div className="text-center md:text-left">© {new Date().getFullYear()} Kalyani Jewellery. BIS Hallmarked · IGI Certified.</div>
           <div className="flex items-center gap-4">
             <a href="https://www.instagram.com/kalayani_jewellry_/" target="_blank" rel="noreferrer" aria-label="Instagram" className="transition hover:text-[color:var(--rose-gold)]"><Instagram className="h-4 w-4" /></a>
             <a href="#" aria-label="Facebook" className="transition hover:text-[color:var(--rose-gold)]"><Facebook className="h-4 w-4" /></a>

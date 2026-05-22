@@ -35,7 +35,7 @@ export function Hero() {
             <Sparkles className="h-3 w-3 text-[color:var(--rose-gold)]" />
             Bengaluru's House of Heirlooms
           </div>
-          <h1 className="mt-6 font-display text-6xl leading-[0.95] tracking-tight md:text-8xl text-foreground">
+          <h1 className="mt-6 font-display text-[2.65rem] leading-[0.95] tracking-tight sm:text-6xl md:text-8xl text-foreground">
             Crafting <em className="italic text-gradient-rose">Elegance</em>
             <br /> Since Generations
           </h1>
@@ -43,28 +43,28 @@ export function Hero() {
             Handcrafted gold, diamond and bridal jewellery — designed in the spirit
             of royal Indian artistry, finished with modern poise.
           </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <a href="#collections" className="group inline-flex items-center gap-2 rounded-full bg-noir px-7 py-3.5 text-sm font-medium text-ivory shadow-luxe transition hover:scale-[1.03]" style={{ background: "var(--noir)", color: "var(--ivory)" }}>
+          <div className="mt-10 flex flex-col sm:flex-row gap-3">
+            <a href="#collections" className="group inline-flex items-center justify-center gap-2 rounded-full bg-noir px-7 py-3.5 text-sm font-medium text-ivory shadow-luxe transition hover:scale-[1.03] w-full sm:w-auto" style={{ background: "var(--noir)", color: "var(--ivory)" }}>
               Explore Collections
               <Sparkles className="h-4 w-4 transition group-hover:rotate-12" />
             </a>
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-full bg-gradient-rose px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-glow transition hover:scale-[1.03]">
+            <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-rose px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-glow transition hover:scale-[1.03] w-full sm:w-auto">
               <Calendar className="h-4 w-4" /> Book Appointment
             </a>
             <a
               href="https://wa.me/919380590305"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-card px-7 py-3.5 text-sm font-medium text-foreground transition hover:border-primary"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-foreground/15 bg-card px-7 py-3.5 text-sm font-medium text-foreground transition hover:border-primary hover:scale-[1.03] w-full sm:w-auto"
             >
               <MessageCircle className="h-4 w-4" /> WhatsApp
             </a>
           </div>
-          <div className="mt-12 flex items-center gap-8 text-xs uppercase tracking-[0.25em] text-muted-foreground">
+          <div className="mt-12 flex flex-wrap items-center justify-center sm:justify-start gap-y-3 gap-x-5 sm:gap-8 text-[11px] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground">
             <div>BIS Hallmarked</div>
-            <div className="h-3 w-px bg-foreground/20" />
+            <div className="hidden sm:block h-3 w-px bg-foreground/20" />
             <div>Certified Diamonds</div>
-            <div className="h-3 w-px bg-foreground/20" />
+            <div className="hidden sm:block h-3 w-px bg-foreground/20" />
             <div>Lifetime Care</div>
           </div>
         </motion.div>

@@ -24,10 +24,10 @@ export function Contact() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
           <div className="text-xs uppercase tracking-[0.4em] text-primary">— Visit Our Atelier</div>
-          <h2 className="mt-4 font-display text-5xl tracking-tight md:text-7xl text-foreground">
+          <h2 className="mt-4 font-display text-[2.45rem] leading-none tracking-tight sm:text-5xl md:text-7xl text-foreground">
             Begin a <em className="italic text-gradient-rose">private</em> consultation.
           </h2>
-          <p className="mt-5 text-muted-foreground">
+          <p className="mt-5 text-sm sm:text-base text-muted-foreground">
             Reserve a one-on-one viewing in our Bengaluru flagship, or speak with a designer over WhatsApp.
           </p>
         </div>
@@ -38,7 +38,7 @@ export function Contact() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="lg:col-span-3 rounded-3xl border border-primary/20 bg-card p-8 shadow-luxe flex flex-col justify-between"
+              className="lg:col-span-3 rounded-3xl border border-primary/20 bg-card p-5 sm:p-8 shadow-luxe flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center gap-3">
@@ -49,7 +49,7 @@ export function Contact() {
                   </div>
                 </div>
                 
-                <div className="mt-8 space-y-4 border-y border-foreground/10 py-6 text-sm">
+                <div className="mt-8 space-y-4 border-y border-foreground/10 py-6 text-xs sm:text-sm">
                   <div className="flex justify-between gap-4">
                     <span className="text-muted-foreground">Guest of Honour</span>
                     <span className="font-medium text-foreground text-right">{formData.name || "Valued Patron"}</span>
@@ -105,7 +105,7 @@ export function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
               onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-              className="lg:col-span-3 rounded-3xl border border-foreground/8 bg-card p-8 shadow-luxe"
+              className="lg:col-span-3 rounded-3xl border border-foreground/8 bg-card p-5 sm:p-8 shadow-luxe"
             >
               <h3 className="font-display text-2xl text-foreground">Book Your Appointment</h3>
               <p className="mt-1 text-sm text-muted-foreground">We'll confirm within 2 hours.</p>
@@ -175,7 +175,7 @@ export function Contact() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="lg:col-span-2 space-y-5"
           >
-            <div className="rounded-3xl bg-noir p-7 text-ivory shadow-luxe" style={{ background: "var(--noir)", color: "var(--ivory)" }}>
+            <div className="rounded-3xl bg-noir p-5 sm:p-7 text-ivory shadow-luxe" style={{ background: "var(--noir)", color: "var(--ivory)" }}>
               <div className="font-display text-2xl">Kalyani Jewellery</div>
               <div className="mt-1 text-xs uppercase tracking-[0.3em] text-[color:var(--champagne)]">Bengaluru Flagship</div>
               <div className="mt-6 space-y-4 text-sm">

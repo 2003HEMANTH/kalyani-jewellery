@@ -20,7 +20,7 @@ export function CustomDesign() {
       <div className="pointer-events-none absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-[color:var(--champagne)] opacity-20 blur-[140px]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="grid items-center gap-16 md:grid-cols-2">
+        <div className="grid items-center gap-8 md:gap-16 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -29,7 +29,7 @@ export function CustomDesign() {
             className="relative"
           >
             <div className="relative overflow-hidden rounded-[2rem] shadow-luxe">
-              <img src={craftsman} alt="Master goldsmith at work" width={1400} height={1600} loading="lazy" className="h-[560px] w-full object-cover" />
+              <img src={craftsman} alt="Master goldsmith at work" width={1400} height={1600} loading="lazy" className="h-[280px] sm:h-[400px] md:h-[560px] w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             </div>
             <motion.div
@@ -47,15 +47,15 @@ export function CustomDesign() {
 
           <div>
             <div className="text-xs uppercase tracking-[0.4em] text-[color:var(--champagne)]">— Bespoke Atelier</div>
-            <h2 className="mt-4 font-display text-5xl tracking-tight md:text-7xl">
+            <h2 className="mt-4 font-display text-[2.5rem] leading-none tracking-tight sm:text-5xl md:text-7xl">
               Designed <em className="italic text-gradient-rose">uniquely</em> for you.
             </h2>
-            <p className="mt-6 max-w-md text-ivory/70">
+            <p className="mt-6 max-w-md text-sm sm:text-base text-ivory/70 leading-relaxed">
               Custom bridal sets, name engravings and one-of-one heirlooms — sculpted by hand
               in our Bengaluru atelier from the first sketch to the final polish.
             </p>
 
-            <div className="mt-10 space-y-2">
+            <div className="mt-10 space-y-3">
               {steps.map((s, i) => (
                 <motion.div
                   key={s.title}
@@ -63,17 +63,17 @@ export function CustomDesign() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="group relative flex items-start gap-5 rounded-2xl border border-ivory/10 p-5 transition hover:border-[color:var(--rose-gold)]/60 hover:bg-ivory/[0.03]"
+                  className="group relative flex items-start gap-4 sm:gap-5 rounded-2xl border border-ivory/10 p-4 sm:p-5 transition hover:border-[color:var(--rose-gold)]/60 hover:bg-ivory/[0.03]"
                 >
                   <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-rose text-ivory shadow-glow">
                     <s.icon className="h-5 w-5" />
                   </div>
                   <div>
                     <div className="flex items-baseline gap-3">
-                      <span className="font-display text-2xl">{s.title}</span>
+                      <span className="font-display text-xl sm:text-2xl">{s.title}</span>
                       <span className="text-[10px] uppercase tracking-[0.3em] text-ivory/40">Step 0{i + 1}</span>
                     </div>
-                    <p className="mt-1 text-sm text-ivory/60">{s.copy}</p>
+                    <p className="mt-1 text-xs sm:text-sm text-ivory/60 leading-relaxed">{s.copy}</p>
                   </div>
                 </motion.div>
               ))}
@@ -81,7 +81,7 @@ export function CustomDesign() {
 
             <a
               href="#contact"
-              className="mt-10 inline-flex items-center gap-2 rounded-full bg-gradient-rose px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-glow transition hover:scale-105"
+              className="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-rose px-7 py-3.5 text-sm font-medium text-primary-foreground shadow-glow transition hover:scale-105 w-full sm:w-auto"
             >
               Begin Your Design Journey →
             </a>

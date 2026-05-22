@@ -18,7 +18,7 @@ export function WhyUs() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
           <div className="text-xs uppercase tracking-[0.4em] text-primary">— Why Kalyani</div>
-          <h2 className="mt-4 font-display text-5xl tracking-tight md:text-6xl text-foreground">
+          <h2 className="mt-4 font-display text-4xl sm:text-5xl md:text-6xl text-foreground">
             The promises behind every piece.
           </h2>
         </div>
@@ -31,7 +31,7 @@ export function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.07 }}
-              className="group relative overflow-hidden rounded-3xl border border-foreground/8 bg-card p-8 shadow-soft transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-luxe"
+              className="group relative overflow-hidden rounded-3xl border border-foreground/8 bg-card p-6 sm:p-8 shadow-soft transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-luxe"
             >
               <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-rose opacity-0 blur-2xl transition group-hover:opacity-40" />
               <div className="relative">
@@ -39,7 +39,7 @@ export function WhyUs() {
                   <f.icon className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="mt-6 font-display text-2xl text-foreground">{f.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{f.copy}</p>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.copy}</p>
                 <div className="mt-6 h-px w-12 bg-gradient-rose" />
               </div>
             </motion.div>

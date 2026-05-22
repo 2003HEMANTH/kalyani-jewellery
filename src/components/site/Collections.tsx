@@ -25,16 +25,16 @@ export function Collections() {
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
             <div className="text-xs uppercase tracking-[0.4em] text-primary">— The Collections</div>
-            <h2 className="mt-4 font-display text-5xl tracking-tight md:text-7xl text-foreground">
+            <h2 className="mt-4 font-display text-[2.5rem] leading-none tracking-tight sm:text-5xl md:text-7xl text-foreground">
               Edited with <em className="italic text-gradient-rose">intention</em>.
             </h2>
           </div>
-          <p className="max-w-md text-muted-foreground">
+          <p className="max-w-md text-muted-foreground text-sm sm:text-base">
             Six houses, one philosophy. From ceremonial brilliance to whispered everyday luxury — each piece is conceived in our Bengaluru atelier.
           </p>
         </div>
 
-        <div className="mt-16 grid auto-rows-[320px] grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="mt-16 grid auto-rows-[275px] sm:auto-rows-[320px] grid-cols-1 gap-5 md:grid-cols-3">
           {items.map((it, i) => (
             <motion.a
               key={it.title}
@@ -54,14 +54,14 @@ export function Collections() {
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <div className="absolute inset-0 flex flex-col justify-between p-7 text-ivory">
+              <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-7 text-ivory">
                 <div className="inline-flex w-fit items-center gap-2 rounded-full glass-dark px-3 py-1 text-[10px] uppercase tracking-[0.3em]">
                   {it.tag}
                 </div>
                 <div>
-                  <h3 className="font-display text-3xl md:text-4xl text-ivory">{it.title}</h3>
-                  <p className="mt-2 max-w-sm text-sm text-ivory/80">{it.copy}</p>
-                  <div className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[color:var(--champagne)] opacity-0 transition group-hover:opacity-100">
+                  <h3 className="font-display text-2xl sm:text-3xl md:text-4xl text-ivory">{it.title}</h3>
+                  <p className="mt-2 max-w-sm text-xs sm:text-sm text-ivory/80">{it.copy}</p>
+                  <div className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[color:var(--champagne)] opacity-90 md:opacity-0 md:transition md:duration-300 md:group-hover:opacity-100">
                     Discover →
                   </div>
                 </div>

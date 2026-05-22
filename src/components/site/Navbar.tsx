@@ -55,11 +55,11 @@ export function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "py-3" : "py-6"
+        scrolled ? "py-2 sm:py-3" : "py-4 sm:py-6"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6">
-        <div className={`flex items-center justify-between rounded-full px-6 py-3 transition-all duration-500 ${scrolled ? "glass shadow-soft" : ""}`}>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className={`flex items-center justify-between rounded-full px-4 py-2.5 sm:px-6 sm:py-3 transition-all duration-500 ${scrolled ? "glass shadow-soft" : ""}`}>
           <a href="#top" className="group flex items-center gap-2">
             <span className="relative grid h-10 w-10 place-items-center rounded-full border border-primary/30 bg-card shadow-glow font-display text-lg font-semibold tracking-tighter transition duration-500 group-hover:scale-105">
               <span className="flex items-center justify-center -space-x-0.5">
@@ -68,8 +68,8 @@ export function Navbar() {
               </span>
             </span>
             <div className="leading-tight">
-              <div className="font-display text-lg tracking-wide text-foreground">Kalyani</div>
-              <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Jewellery</div>
+              <div className="font-display text-[15px] sm:text-lg tracking-wide text-foreground">Kalyani</div>
+              <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Jewellery</div>
             </div>
           </a>
           <nav className="hidden items-center gap-9 md:flex">
@@ -80,6 +80,8 @@ export function Navbar() {
               </a>
             ))}
           </nav>
+          
+          {/* Desktop utility menu */}
           <div className="hidden items-center gap-3 md:flex">
             <a href="tel:+919380590305" className="flex items-center gap-2 text-sm text-foreground/80 transition hover:text-primary">
               <Phone className="h-4 w-4" /> +91 93805 90305
@@ -99,34 +101,41 @@ export function Navbar() {
               Book Appointment
             </a>
           </div>
-          <button className="md:hidden text-foreground" aria-label="menu" onClick={() => setOpen(!open)}>
-            {open ? <X /> : <Menu />}
-          </button>
+
+          {/* Mobile utility menu */}
+          <div className="flex items-center gap-2.5 md:hidden">
+            <button
+              onClick={toggleTheme}
+              className="grid h-9 w-9 place-items-center rounded-full border border-foreground/10 bg-card text-foreground transition duration-300 hover:border-primary cursor-pointer"
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? (
+                <Moon className="h-3.5 w-3.5 text-[color:var(--rose-gold)]" />
+              ) : (
+                <Sun className="h-3.5 w-3.5 text-[color:var(--champagne)]" />
+              )}
+            </button>
+            <button className="text-foreground p-1.5 focus:outline-none" aria-label="menu" onClick={() => setOpen(!open)}>
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
+        
         {open && (
           <div className="mt-2 rounded-3xl glass p-6 md:hidden">
             <nav className="flex flex-col gap-4">
               {links.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-base text-foreground">{l.label}</a>
+                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-base font-medium tracking-wide text-foreground/90 transition hover:text-foreground">{l.label}</a>
               ))}
-              <div className="flex items-center justify-between mt-2 pt-2 border-t border-foreground/10">
-                <span className="text-sm text-foreground/80">Theme</span>
-                <button
-                  onClick={toggleTheme}
-                  className="flex items-center gap-2 rounded-full border border-foreground/15 bg-card px-4 py-2 text-xs font-medium text-foreground transition cursor-pointer"
-                >
-                  {theme === "light" ? (
-                    <>
-                      <Moon className="h-3.5 w-3.5 text-primary" /> Dark Mode
-                    </>
-                  ) : (
-                    <>
-                      <Sun className="h-3.5 w-3.5 text-accent" /> Light Mode
-                    </>
-                  )}
-                </button>
+              <div className="flex items-center justify-between mt-2 pt-2 border-t border-foreground/10 text-sm text-foreground/80">
+                <span>Call the Shop</span>
+                <a href="tel:+919380590305" className="flex items-center gap-1.5 text-primary font-medium hover:underline">
+                  <Phone className="h-3.5 w-3.5" /> +91 93805 90305
+                </a>
               </div>
-              <a href="#contact" onClick={() => setOpen(false)} className="rounded-full bg-gradient-rose px-5 py-2 text-center text-primary-foreground">Book Appointment</a>
+              <a href="#contact" onClick={() => setOpen(false)} className="rounded-full bg-gradient-rose px-5 py-2.5 text-center text-sm font-medium text-primary-foreground shadow-glow mt-2">
+                Book Appointment
+              </a>
             </nav>
           </div>
         )}
