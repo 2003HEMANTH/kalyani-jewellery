@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
+import { ShowroomBillboard } from "@/components/site/ShowroomBillboard";
 import { Collections } from "@/components/site/Collections";
 import { CustomDesign } from "@/components/site/CustomDesign";
 import { About } from "@/components/site/About";
@@ -15,6 +16,7 @@ export default function Home() {
       <SmoothScroll />
       <Navbar />
       <Hero />
+      <ShowroomBillboard />
       <Collections />
       <CustomDesign />
       <About />
