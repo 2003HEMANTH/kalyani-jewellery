@@ -61,11 +61,50 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className={`flex items-center justify-between rounded-full px-4 py-2.5 sm:px-6 sm:py-3 transition-all duration-500 ${scrolled ? "glass shadow-soft" : ""}`}>
           <a href="#top" className="group flex items-center gap-2">
-            <span className="relative grid h-10 w-10 place-items-center rounded-full border border-primary/30 bg-card shadow-glow font-display text-lg font-semibold tracking-tighter transition duration-500 group-hover:scale-105">
-              <span className="flex items-center justify-center -space-x-0.5">
-                <span className="text-gradient-rose">K</span>
-                <span className="text-accent italic font-serif -translate-y-[1px]">J</span>
-              </span>
+            <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-card shadow-glow transition duration-500 group-hover:scale-105">
+              <svg viewBox="0 0 100 100" className="h-full w-full text-primary">
+                {/* Elegant gold outer circles */}
+                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-80" />
+                <circle cx="50" cy="50" r="41" fill="none" stroke="currentColor" strokeWidth="0.5" className="opacity-40" strokeDasharray="2 2" />
+                
+                {/* Monogram letters */}
+                <text
+                  x="33"
+                  y="62"
+                  fontFamily="var(--font-display), serif"
+                  fontSize="44"
+                  fontWeight="300"
+                  fill="url(#goldGradient)"
+                  className="select-none"
+                >
+                  K
+                </text>
+                <text
+                  x="53"
+                  y="70"
+                  fontFamily="var(--font-display), serif"
+                  fontSize="44"
+                  fontStyle="italic"
+                  fontWeight="400"
+                  fill="url(#goldGradientAccent)"
+                  className="select-none"
+                >
+                  J
+                </text>
+                
+                {/* Gradients definitions */}
+                <defs>
+                  <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="var(--rose-gold)" />
+                    <stop offset="50%" stopColor="var(--rose-gold-soft)" />
+                    <stop offset="100%" stopColor="var(--champagne)" />
+                  </linearGradient>
+                  <linearGradient id="goldGradientAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="var(--champagne)" />
+                    <stop offset="100%" stopColor="var(--rose-gold)" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </span>
             <div className="leading-tight">
               <div className="font-display text-[15px] sm:text-lg tracking-wide text-foreground">Kalyani</div>

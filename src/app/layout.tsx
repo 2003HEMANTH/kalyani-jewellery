@@ -28,6 +28,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: "/assets/banner-circular.jpg",
+    shortcut: "/assets/banner-circular.jpg",
+    apple: "/assets/banner-circular.jpg",
+  },
 };
 
 export default function RootLayout({
