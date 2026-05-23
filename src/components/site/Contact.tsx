@@ -3,9 +3,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, MessageCircle, MapPin, Clock, Mail } from "lucide-react";
+import { sendAppointmentEmail } from "@/app/actions/appointment";
 
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [isPending, setIsPending] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -17,6 +20,26 @@ export function Contact() {
 
   const handleInputChange = (field: string, val: string) => {
     setFormData(prev => ({ ...prev, [field]: val }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsPending(true);
+    setErrorMessage(null);
+
+    try {
+      const res = await sendAppointmentEmail(formData);
+      if (res.success) {
+        setSent(true);
+      } else {
+        setErrorMessage(res.error || "Unable to submit reservation. Please try again.");
+      }
+    } catch (err: any) {
+      setErrorMessage("An unexpected network error occurred. Please try again.");
+      console.error(err);
+    } finally {
+      setIsPending(false);
+    }
   };
 
   return (
@@ -104,7 +127,7 @@ export function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+              onSubmit={handleSubmit}
               className="lg:col-span-3 rounded-3xl border border-foreground/8 bg-card p-5 sm:p-8 shadow-luxe"
             >
               <h3 className="font-display text-2xl text-foreground">Book Your Appointment</h3>
@@ -158,11 +181,32 @@ export function Contact() {
                   />
                 </div>
               </div>
+              {errorMessage && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 rounded-xl border border-red-500/20 bg-red-500/10 p-4 text-xs text-red-400 text-center"
+                >
+                  {errorMessage}
+                </motion.div>
+              )}
+
               <button
                 type="submit"
-                className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-rose px-7 py-4 text-sm font-medium text-primary-foreground shadow-glow transition hover:scale-[1.01] cursor-pointer"
+                disabled={isPending}
+                className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-rose px-7 py-4 text-sm font-medium text-primary-foreground shadow-glow transition hover:scale-[1.01] cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
               >
-                Reserve My Visit
+                {isPending ? (
+                  <span className="flex items-center gap-2">
+                    <svg className="animate-spin h-4 w-4 text-white animate-spin-slow" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    Securing Your Reservation...
+                  </span>
+                ) : (
+                  "Reserve My Visit"
+                )}
               </button>
             </motion.form>
           )}
